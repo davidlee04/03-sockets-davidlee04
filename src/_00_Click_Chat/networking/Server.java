@@ -9,6 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Server {
@@ -24,7 +25,7 @@ public class Server {
 		this.port = port;
 	}
 
-	public void start(){
+	public void start(JFrame frame){
 		try {
 			server = new ServerSocket(port, 100);
 
@@ -37,10 +38,10 @@ public class Server {
 
 			while (connection.isConnected()) {
 				try {
-					JOptionPane.showMessageDialog(null, is.readObject());
+					JOptionPane.showMessageDialog(frame, is.readObject());
 					System.out.println(is.readObject());
 				}catch(EOFException e) {
-					JOptionPane.showMessageDialog(null, "Connection Lost");
+					JOptionPane.showMessageDialog(frame, "Connection Lost");
 					System.exit(0);
 				}
 			}

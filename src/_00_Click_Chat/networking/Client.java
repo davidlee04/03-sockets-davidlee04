@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Client {
@@ -22,7 +23,7 @@ public class Client {
 		this.port = port;
 	}
 
-	public void start(){
+	public void start(JFrame frame){
 		try {
 
 			connection = new Socket(ip, port);
@@ -40,7 +41,7 @@ public class Client {
 		
 		while (connection.isConnected()) {
 			try {
-				JOptionPane.showMessageDialog(null, is.readObject());
+				JOptionPane.showMessageDialog(frame, is.readObject());
 				System.out.println(is.readObject());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

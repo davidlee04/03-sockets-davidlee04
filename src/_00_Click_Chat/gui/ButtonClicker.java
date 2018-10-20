@@ -24,7 +24,7 @@ public class ButtonClicker extends JFrame {
 		if(response == JOptionPane.YES_OPTION){
 			server = new Server(8080);
 			setTitle("SERVER");
-			JOptionPane.showMessageDialog(null, "Server started at: " + server.getIPAddress() + "\nPort: " + server.getPort());
+			JOptionPane.showMessageDialog(this, "Server started at: " + server.getIPAddress() + "\nPort: " + server.getPort());
 			button.addActionListener((e)->{
 				server.sendClick();
 			});
@@ -32,7 +32,7 @@ public class ButtonClicker extends JFrame {
 			setVisible(true);
 			setSize(400, 300);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			server.start();
+			server.start(this);
 			
 		}else{
 			setTitle("CLIENT");
@@ -47,7 +47,7 @@ public class ButtonClicker extends JFrame {
 			setVisible(true);
 			setSize(400, 300);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			client.start();
+			client.start(this);
 		}
 	}
 }
