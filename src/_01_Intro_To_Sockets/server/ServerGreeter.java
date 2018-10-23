@@ -31,10 +31,11 @@ public class ServerGreeter extends Thread {
 				Socket socket = serverSocket.accept();
 				JOptionPane.showMessageDialog(null, "Client has connected.");
 				DataInputStream dis = new DataInputStream(socket.getInputStream());
-				dis.readUTF();
+				System.out.println("Client: "+dis.readUTF());
 				DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-				dos.writeUTF("hi client");
-				socket.close();
+				String msg = JOptionPane.showInputDialog("Enter a message");
+				System.out.println("Server: "+msg);
+				//socket.close();
 			} catch(SocketTimeoutException e) {
 				JOptionPane.showMessageDialog(null, "error");
 				temp = false;
