@@ -3,6 +3,7 @@ package _02_Chat_Application;
 import java.io.IOException;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import _01_Intro_To_Sockets.client.ClientGreeter;
 import _01_Intro_To_Sockets.server.ServerGreeter;
@@ -26,7 +27,11 @@ public class ChatApp {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		server.run();
+		//client.start();
+		
+		
 
 	}
 
